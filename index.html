@@ -4,576 +4,1142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación de Cumpleaños</title>
-    <!-- Google Fonts -->
+    <title>China - 30 Años ✨</title>
+
+    <!-- Fuentes modernas -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Anybody:ital,wght@0,100..900;1,100..900&family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        /* Animación de nieve */
-        @keyframes snow {
-            0% {
-                opacity: 0;
-                transform: translateY(0vh);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --secondary-gold: #F4E4C1;
+            --dark-navy: #1a1a2e;
+            --soft-white: #f8f9fa;
+            --accent-rose: #e8b4b8;
+            --text-dark: #2c2c2c;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0f;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--soft-white);
+            position: relative;
+        }
+
+        /* Fondo animado infinito con estrellas */
+        .stars-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .stars-background::before,
+        .stars-background::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 200%;
+            background-image:
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent),
+                radial-gradient(1px 1px at 33% 80%, white, transparent),
+                radial-gradient(1px 1px at 15% 50%, white, transparent);
+            background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 180px 180px, 220px 220px, 280px 280px;
+            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px, 150px 50px, 200px 150px, 90px 200px;
+            animation: starsMove 120s linear infinite;
+            opacity: 0.3;
+        }
+
+        .stars-background::after {
+            animation-duration: 180s;
+            opacity: 0.2;
+        }
+
+        @keyframes starsMove {
+            from {
+                transform: translateY(0);
             }
 
-            20% {
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        /* Partículas doradas flotantes */
+        @keyframes floatGold {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
                 opacity: 1;
             }
 
             100% {
-                opacity: 0.3;
-                transform: translateY(100vh);
+                transform: translateY(-100vh) translateX(50px) rotate(360deg);
+                opacity: 0;
             }
         }
 
-        .snow {
+        .particles {
             position: fixed;
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
-            filter: drop-shadow(0 0 10px white);
-        }
-
-        .snow:nth-child(1) {
-            left: 10%;
-            animation: snow 10s linear infinite;
-        }
-
-        .snow:nth-child(2) {
-            left: 20%;
-            animation: snow 12s linear infinite;
-            animation-delay: 1s;
-        }
-
-        .snow:nth-child(3) {
-            left: 30%;
-            animation: snow 13s linear infinite;
-            animation-delay: 2s;
-        }
-
-        .snow:nth-child(4) {
-            left: 40%;
-            animation: snow 11s linear infinite;
-            animation-delay: 3s;
-        }
-
-        .snow:nth-child(5) {
-            left: 50%;
-            animation: snow 14s linear infinite;
-            animation-delay: 4s;
-        }
-
-        .snow:nth-child(6) {
-            left: 60%;
-            animation: snow 12s linear infinite;
-            animation-delay: 5s;
-        }
-
-        .snow:nth-child(7) {
-            left: 70%;
-            animation: snow 13s linear infinite;
-            animation-delay: 6s;
-        }
-
-        .snow:nth-child(8) {
-            left: 80%;
-            animation: snow 11s linear infinite;
-            animation-delay: 7s;
-        }
-
-        .snow:nth-child(9) {
-            left: 90%;
-            animation: snow 14s linear infinite;
-            animation-delay: 8s;
-        }
-
-        .snow:nth-child(10) {
-            left: 25%;
-            animation: snow 12s linear infinite;
-            animation-delay: 9s;
-        }
-
-        .snow:nth-child(11) {
-            left: 65%;
-            animation: snow 13s linear infinite;
-            animation-delay: 10s;
-        }
-
-        .snow:nth-child(12) {
-            left: 35%;
-            animation: snow 11s linear infinite;
-            animation-delay: 5.5s;
-        }
-
-        .snow:nth-child(13) {
-            left: 45%;
-            animation: snow 14s linear infinite;
-            animation-delay: 6.5s;
-        }
-
-        .snow:nth-child(14) {
-            left: 55%;
-            animation: snow 12s linear infinite;
-            animation-delay: 7.5s;
-        }
-
-        .snow:nth-child(15) {
-            left: 85%;
-            animation: snow 13s linear infinite;
-            animation-delay: 8.5s;
-        }
-
-        body {
-            font-family: 'Comic Neue', cursive;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            font-weight: 400;
-            background: radial-gradient(ellipse at bottom, #0c0e11 0%, #111111 100%);
-            overflow: auto;
-            color: #ffffff;
-        }
-
-        .snow-container {
-            position: fixed;
-            top: -10px;
+            top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 1;
-        }
-
-        .invitation {
-            position: relative;
-            z-index: 2;
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-            min-height: 600px;
-            width:100vw;
-            color: #fff;
             overflow: hidden;
         }
 
-        .invitation::before {
-            content: '';
+        .particle {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('img.jpg');
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.4);
-            /* Darkened for better text visibility */
-            z-index: -2;
-        }
-
-        .invitation::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(rgba(0, 0, 0, 0.7),
-                    rgba(0, 0, 0, 0.4));
-            z-index: -1;
-        }
-
-        h1,
-        h2 {
-            font-family: 'Anybody', cursive;
-            background: linear-gradient(45deg, #585657, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        h1 {
-            font-weight: 800;
-            font-size: 3rem;
-        }
-
-        h2 {
-            font-weight: 600;
-            font-size: 2.5rem;
-        }
-
-        p {
-            font-size: 1.3rem;
-            line-height: 1.6;
-        }
-
-        .address a {
-            color: #F88379;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Anybody', cursive;
-            transition: color 0.3s ease;
-        }
-
-        .address a:hover {
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        .carousel-item img {
-            border-radius: 10px;
-            object-fit: cover;
-            height: 600px;
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-color: #F88379;
+            width: 6px;
+            height: 6px;
+            background: var(--primary-gold);
             border-radius: 50%;
-            padding: 20px;
+            box-shadow:
+                0 0 10px var(--primary-gold),
+                0 0 20px var(--primary-gold),
+                0 0 30px rgba(212, 175, 55, 0.5);
+            animation: floatGold linear infinite;
         }
 
-        .fecha-hora {
-            font-family: 'Anybody', cursive;
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: #F88379;
-            text-shadow: 0 0 10px rgba(255, 0, 102, 0.1);
+        .particle:nth-child(1) {
+            left: 5%;
+            width: 4px;
+            height: 4px;
+            animation-duration: 12s;
+            animation-delay: 0s;
         }
 
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
+        .particle:nth-child(2) {
+            left: 15%;
+            width: 6px;
+            height: 6px;
+            animation-duration: 15s;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(3) {
+            left: 25%;
+            width: 5px;
+            height: 5px;
+            animation-duration: 18s;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(4) {
+            left: 35%;
+            width: 7px;
+            height: 7px;
+            animation-duration: 13s;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(5) {
+            left: 45%;
+            width: 4px;
+            height: 4px;
+            animation-duration: 16s;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(6) {
+            left: 55%;
+            width: 6px;
+            height: 6px;
+            animation-duration: 14s;
+            animation-delay: 5s;
+        }
+
+        .particle:nth-child(7) {
+            left: 65%;
+            width: 5px;
+            height: 5px;
+            animation-duration: 17s;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(8) {
+            left: 75%;
+            width: 8px;
+            height: 8px;
+            animation-duration: 19s;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(9) {
+            left: 85%;
+            width: 4px;
+            height: 4px;
+            animation-duration: 13s;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(10) {
+            left: 95%;
+            width: 6px;
+            height: 6px;
+            animation-duration: 15s;
+            animation-delay: 6s;
+        }
+
+        .particle:nth-child(11) {
+            left: 10%;
+            width: 5px;
+            height: 5px;
+            animation-duration: 20s;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(12) {
+            left: 30%;
+            width: 7px;
+            height: 7px;
+            animation-duration: 14s;
+            animation-delay: 5s;
+        }
+
+        .particle:nth-child(13) {
+            left: 50%;
+            width: 4px;
+            height: 4px;
+            animation-duration: 16s;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(14) {
+            left: 70%;
+            width: 6px;
+            height: 6px;
+            animation-duration: 18s;
+            animation-delay: 4s;
+        }
+
+        .particle:nth-child(15) {
+            left: 90%;
+            width: 5px;
+            height: 5px;
+            animation-duration: 12s;
+            animation-delay: 1s;
+        }
+
+        .particle:nth-child(16) {
+            left: 20%;
+            width: 7px;
+            height: 7px;
+            animation-duration: 17s;
+            animation-delay: 6s;
+        }
+
+        .particle:nth-child(17) {
+            left: 40%;
+            width: 4px;
+            height: 4px;
+            animation-duration: 15s;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(18) {
+            left: 60%;
+            width: 6px;
+            height: 6px;
+            animation-duration: 19s;
+            animation-delay: 5s;
+        }
+
+        .particle:nth-child(19) {
+            left: 80%;
+            width: 5px;
+            height: 5px;
+            animation-duration: 13s;
+            animation-delay: 2s;
+        }
+
+        .particle:nth-child(20) {
+            left: 12%;
+            width: 8px;
+            height: 8px;
+            animation-duration: 16s;
+            animation-delay: 4s;
+        }
+
+        /* Botón de inicio */
+        .intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .intro-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .play-button {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-rose));
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(212, 175, 55, 0.6);
+        }
+
+        .play-button i {
+            font-size: 3rem;
+            color: white;
+            margin-left: 5px;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
             }
 
             50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
+                box-shadow: 0 10px 60px rgba(212, 175, 55, 0.7);
             }
         }
 
-        .invitation {
-            animation: float 6s ease-in-out infinite;
+        .intro-text {
+            margin-top: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--secondary-gold);
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        /* Contenedor principal */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+        }
+
+        .main-container.visible {
+            opacity: 1;
+        }
+
+        /* Header elegante */
+        .header {
+            text-align: center;
+            padding: 4rem 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--secondary-gold);
+            font-weight: 300;
+            letter-spacing: 5px;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .header .age {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-rose));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            animation: fadeInUp 1s ease 0.5s both;
+        }
+
+        .decorative-line {
+            width: 150px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            margin: 2rem auto;
+            animation: fadeIn 1s ease 0.7s both;
+        }
+
+        /* Tarjeta de invitación */
+        .invitation-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(2rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .invitation-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            line-height: 1.8;
+            color: var(--soft-white);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        /* Detalles del evento */
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .detail-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .detail-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--primary-gold);
+            transform: translateY(-5px);
+        }
+
+        .detail-item i {
+            font-size: 2.5rem;
+            color: var(--primary-gold);
+            margin-bottom: 1rem;
+        }
+
+        .detail-item .label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-gold);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .detail-item .value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--soft-white);
+            font-weight: 500;
+        }
+
+        .detail-item a {
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .detail-item a:hover {
+            color: var(--secondary-gold);
+            text-decoration: underline;
+        }
+
+        /* Contador regresivo */
+        .countdown-section {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(232, 180, 184, 0.1));
+            border-radius: 25px;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .countdown-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            text-align: center;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
 
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-            font-family: 'Anybody', cursive;
+            gap: clamp(1rem, 3vw, 2rem);
+            flex-wrap: wrap;
         }
 
         .countdown-item {
-            text-align: center;
             min-width: 80px;
+            text-align: center;
         }
 
         .countdown-number {
-            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 700;
-            color: #F88379;
-            text-shadow: 0 0 10px rgba(255, 0, 102, 0.2);
-            margin-bottom: 5px;
-        }
-
-        .countdown-label {
-            font-size: 0.9rem;
-            color: #ffffff;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        .countdown-container {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            margin: 20px 0;
-            border: 1px solid rgba(255, 0, 102, 0.1);
-        }
-
-        .primary-txt {
-            background: linear-gradient(45deg, #8b888a, #ffffff);
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-rose));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.5rem;
         }
 
-        #contentInvitation {
-            display: none;
+        .countdown-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--secondary-gold);
+            font-weight: 500;
         }
 
-        #playAudio {
-            border: none;
-            background-color: #ffffff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 50%;
-            font-size: 4rem;
-            width: 100px;
-            height: 100px;
-            color: #000000;
-            transition: all 0.2s ease;
+        /* Galería de fotos - Slideshow moderno */
+        .gallery-section {
+            margin: 4rem 0;
         }
 
-        #playAudio:hover {
+        .gallery-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            text-align: center;
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: clamp(400px, 60vh, 700px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .slideshow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 2s ease-in-out, transform 20s ease-out;
+            transform: scale(1);
+        }
+
+        .slideshow-image.active {
+            opacity: 1;
             transform: scale(1.1);
-            background-color: #000000;
-            color: #fff;
+            z-index: 2;
+        }
+
+        .slideshow-image.previous {
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .slideshow-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Overlay gradiente para texto sobre imágenes */
+        .slideshow-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+            pointer-events: none;
+        }
+
+        /* Indicadores de progreso */
+        .slideshow-indicators {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 40px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .indicator.active {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .indicator.active::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: var(--primary-gold);
+            animation: indicatorProgress 5s linear;
+        }
+
+        @keyframes indicatorProgress {
+            from {
+                width: 0%;
+            }
+
+            to {
+                width: 100%;
+            }
+        }
+
+        /* Contador de imágenes */
+        .image-counter {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            color: white;
+            z-index: 10;
+        }
+
+        .image-counter .current {
+            color: var(--primary-gold);
+            font-weight: 700;
+        }
+
+        /* Sección de carta de amor */
+        .love-card {
+            position: relative;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(232, 180, 184, 0.1));
+            border-radius: 25px;
+            padding: clamp(2rem, 5vw, 4rem);
+            margin: 3rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+
+        .love-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--primary-gold);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .love-card p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            line-height: 2;
+            color: var(--soft-white);
+            text-align: justify;
+            margin-bottom: 1.5rem;
+        }
+
+        .img-love-card {
+            object-fit: cover;
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            opacity: 0.2;
+            height: 100%;
+            width: 100%;
+            border-radius: 25px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* Botones */
+        .btn-custom {
+            font-family: 'Montserrat', sans-serif;
+            padding: 1rem 2.5rem;
+            border: 2px solid var(--primary-gold);
+            background: transparent;
+            color: var(--primary-gold);
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn-custom:hover {
+            background: var(--primary-gold);
+            color: var(--dark-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-rose));
+            border: none;
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background: linear-gradient(135deg, var(--accent-rose), var(--primary-gold));
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 1rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            color: var(--secondary-gold);
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 2rem 1rem;
+            }
+
+            .invitation-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .event-details {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .countdown {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 70px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                letter-spacing: 1px;
+            }
+
+            .header .subtitle {
+                letter-spacing: 3px;
+            }
+
+            .play-button {
+                width: 100px;
+                height: 100px;
+            }
+
+            .play-button i {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Utilidades */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-3 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mt-4 {
+            margin-top: 2rem;
         }
     </style>
 </head>
 
 <body>
-    <!-- Contenedor de nieve -->
-    <div class="snow-container">
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
-        <div class="snow"></div>
+    <!-- Fondo de estrellas animado infinito -->
+    <div class="stars-background"></div>
+
+    <!-- Partículas doradas -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
-    <button id="playAudio" class="btn btn-light text-justify" type="button">
-        <i class="bi bi-play-fill"></i>
-        <p class="text-white" style="font-size: 2rem; font-weight: 600;">Dale play!</p>
-    </button>
-
-    <div class="invitation position-relative card" id="contentInvitation">
-        <div class="snow-container">
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-            <div class="snow"></div>
-        </div>
-        <div id="sectionInvitation">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2 class="text-center mb-4">¡Feliz Cumpleaños!</h2>
-                </div>
-                <div class="col-lg-12">
-                    <h2 class="text-center mb-4" style="cursor: pointer;" onclick="showCard()">CHINA</h2>
-                </div>
-                <div class="col-lg-12" style="text-align: justify;">
-                    <p class="primary-txt">Acompáñanos a celebrar la vida de una mujer extraordinaria, que a sus 29
-                        años ha sido luz y felicidad para quienes la rodean.</p>
-                </div>
-                <div class="col-lg-12 text-start d-flex">
-                    <div class="col-lg-2 pe-2">
-                        <p style="color: #ffffff; font-weight: 800;">Fecha: </p>
-                    </div>
-                    <div class="col-lg-10 justify-content-start">
-                        <p class="fecha-hora">15 - Febrero - 2025</p>
-                    </div>
-                </div>
-                <div class="col-lg-12 text-start d-flex">
-                    <div class="col-lg-2 pe-2">
-                        <p style="color: #ffffff; font-weight: 800;">Hora:</p>
-                    </div>
-                    <div class="col-lg-10 justify-content-start">
-                        <p class="fecha-hora"> 04:00 pm</p>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <p class="address text-center" style="color: #ffffff; font-weight: 800;">
-                        Dirección:
-                        <a style="text-decoration: underline;"
-                            href="https://www.google.com/maps/dir/19.3061432,-99.2106851/19.312789,-98.398203/@19.3269666,-99.4622547,9z/data=!3m1!4b1!4m8!4m7!1m1!4e1!1m1!4e1!2m1!2b1!3e0?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
-                            target="_blank">
-                            C. Loma bonita 8 A San Gabriel Popocatla, Tlaxcala.
-                        </a>
-                    </p>
-                </div>
-                <div class="col-lg-12 text-center">
-                    <audio loop class="w-100" id="music">
-                        <source src="Bruno Mars - Just The Way You Are.mp3" type="audio/mp3">
-                        Tu navegador no soporta el elemento de audio.
-                    </audio>
-                </div>
-                <div class="col-lg-12">
-                    <p class="text-center" style="color: #ffffff; font-weight: 800; text-align: justify;">¡Espero verte
-                        allí!
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div id="birthdayCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="img1.jpg" class="d-block w-100" alt="Imagen de celebración 1">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img2.jpg" class="d-block w-100" alt="Imagen de celebración 2">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img3.jpg" class="d-block w-100" alt="Imagen de celebración 3">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img4.jpg" class="d-block w-100" alt="Imagen de celebración 4">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img5.jpg" class="d-block w-100" alt="Imagen de celebración 5">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img6.jpg" class="d-block w-100" alt="Imagen de celebración 6">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img7.jpg" class="d-block w-100" alt="Imagen de celebración 7">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img8.jpg" class="d-block w-100" alt="Imagen de celebración 8">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img9.jpg" class="d-block w-100" alt="Imagen de celebración 9">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img10.jpg" class="d-block w-100" alt="Imagen de celebración 10">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img11.jpg" class="d-block w-100" alt="Imagen de celebración 11">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img12.jpg" class="d-block w-100" alt="Imagen de celebración 12">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img13.jpg" class="d-block w-100" alt="Imagen de celebración 13">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img14.jpg" class="d-block w-100" alt="Imagen de celebración 14">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img15.jpg" class="d-block w-100" alt="Imagen de celebración 15">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="img16.jpg" class="d-block w-100" alt="Imagen de celebración 16">
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#birthdayCarousel"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Anterior</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#birthdayCarousel"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Siguiente</span>
-                    </button>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 col-sm-12">
-                    <div class="countdown-container">
-                        <div class="countdown" id="countdown">
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="days">00</div>
-                                <div class="countdown-label">Días</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="hours">00</div>
-                                <div class="countdown-label">Horas</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="minutes">00</div>
-                                <div class="countdown-label">Minutos</div>
-                            </div>
-                            <div class="countdown-item">
-                                <div class="countdown-number" id="seconds">00</div>
-                                <div class="countdown-label">Segundos</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="sectionLoveCard" style="display: none;">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h2>Hola mi corazón!</h2>
-                    <p style="text-align: justify;">
-                        Hoy celebro tu vida y doy gracias a Dios por haberte conocido.
-
-                        Deseo de todo corazón que seas muy feliz hoy y siempre. Sabes que siempre estaré aquí para ti.
-
-                        Gracias por la hermosa familia que me has regalado; jamás podré pagarte todo lo que has hecho
-                        por nosotros. Disfruta tu día al máximo, y espero que la vida me brinde el tiempo suficiente
-                        para retribuirte todo lo que haces por esta bella familia.
-
-                        No desesperes, sé que cumplirás tus sueños... ¡te lo prometo!
-
-                        Te amo hoy más que nunca.
-
-                        ¡Gracias! 💖
-                    </p>
-                    <button class="btn btn-primary" onclick="showSectionInvitation()">
-                        Atras
-                    </button>
-                </div>
-            </div>
-        </div>
+    <!-- Pantalla de inicio -->
+    <div class="intro-screen" id="introScreen">
+        <button class="play-button" id="playButton">
+            <i class="bi bi-play-fill"></i>
+        </button>
+        <p class="intro-text">Toca para comenzar</p>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <!-- Audio -->
+    <audio loop id="music">
+        <source src="Todo A Su Tiempo.mp3" type="audio/mp3">
+    </audio>
+
+    <!-- Contenedor principal -->
+    <div class="main-container" id="mainContainer">
+        <!-- Header -->
+        <header class="header">
+            <div class="subtitle">Celebremos juntos</div>
+            <h1 onclick="showLoveCard()">CHINA</h1>
+            <div class="decorative-line"></div>
+            <div class="age">30</div>
+        </header>
+
+        <!-- Sección de invitación principal -->
+        <section id="invitationSection">
+            <div class="invitation-card">
+                <p class="invitation-text">
+                    Acompáñanos a celebrar los 30 años de una mujer extraordinaria que ha llenado nuestras vidas de luz y felicidad.
+                    Brindemos por todo lo vivido, por las risas compartidas y por cada momento especial que aún está por llegar. ¡Que sus 30 estén llenos de alegría, amor y celebraciones inolvidables! ✨🎉
+                </p>
+
+                <!-- Detalles del evento -->
+                <div class="event-details">
+                    <div class="detail-item">
+                        <i class="bi bi-calendar-heart"></i>
+                        <div class="label">Fecha</div>
+                        <div class="value">14 de Febrero, 2025</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="bi bi-clock"></i>
+                        <div class="label">Hora</div>
+                        <div class="value">5:00 PM</div>
+                    </div>
+
+                    <div class="detail-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div class="label">Lugar</div>
+                        <div class="value">
+                            <a href="https://www.google.com/maps/dir/19.3061432,-99.2106851/19.312789,-98.398203/@19.3269666,-99.4622547,9z/data=!3m1!4b1!4m8!4m7!1m1!4e1!1m1!4e1!2m1!2b1!3e0?entry=ttu&g_ep=EgoyMDI1MDIwNS4xIKXMDSoJLDEwMjExMjM0SAFQAw%3D%3D"
+                                target="_blank">
+                                C. Loma bonita 8 A<br>San Gabriel Popocatla, Tlaxcala
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contador regresivo -->
+                <div class="countdown-section">
+                    <h3 class="countdown-title">Faltan</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Días</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Horas</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Minutos</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Segundos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Botón especial -->
+                <!-- <div class="text-center mt-4">
+                    <button class="btn-custom btn-primary-custom" onclick="showLoveCard()">
+                        Un mensaje especial ✨
+                    </button>
+                </div> -->
+            </div>
+
+            <!-- Galería -->
+            <div class="gallery-section">
+                <h2 class="gallery-title">Momentos Especiales</h2>
+                <div class="slideshow-container" id="slideshowContainer">
+                    <!-- Contador de imágenes -->
+                    <div class="image-counter">
+                        <span class="current" id="currentImage">1</span> / <span id="totalImages">16</span>
+                    </div>
+
+                    <!-- Imágenes -->
+                    <div class="slideshow-image active">
+                        <img src="img1.jpg" alt="Celebración 1">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img2.jpg" alt="Celebración 2">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img3.jpg" alt="Celebración 3">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img4.jpg" alt="Celebración 4">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img5.jpg" alt="Celebración 5">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img6.jpg" alt="Celebración 6">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img7.jpg" alt="Celebración 7">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img8.jpg" alt="Celebración 8">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img9.jpg" alt="Celebración 9">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img10.jpg" alt="Celebración 10">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img11.jpg" alt="Celebración 11">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img12.jpg" alt="Celebración 12">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img13.jpg" alt="Celebración 13">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img14.jpg" alt="Celebración 14">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img15.jpg" alt="Celebración 15">
+                    </div>
+                    <div class="slideshow-image">
+                        <img src="img16.jpg" alt="Celebración 16">
+                    </div>
+
+                    <!-- Indicadores de progreso -->
+                    <div class="slideshow-indicators" id="indicators"></div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                ¡Espero verte allí! ✨
+            </footer>
+        </section>
+
+        <!-- Sección de carta de amor (oculta inicialmente) -->
+        <section id="loveSection" class="hidden">
+            <div class="love-card">
+                <h2>Hola chaparrita! 💖</h2>
+                <p>
+                    Yo se que quiza no querias tu festejo, pero es imposible no celebrar tu vida cariño.
+                </p>
+                <p>
+                    Este es un dia muy especial ! Disfruta al maximo cada momento y recuerda siempre que yo y los peques
+                    te amamos mucho.
+                </p>
+                <p>
+                    Tu jamas estaras sola, siempre puedes contar conmigo yo siempre estare aqui cariño, eres lo mejor
+                    que me ah pasado en la vida.
+                </p>
+                <p>
+                    Gracias por regalarme tan hermosa familia, gracias por cuidarnos. Recuerda que gracias a tu esfuerzo
+                    y dedicación hoy estamos de pie!
+                </p>
+                </p>
+                <p>
+                    Te mereces todo lo bello de la vida mi reyna! Se feliz siempre.
+                </p>
+                <p style="text-align: center; font-weight: 700; font-size: 1.6rem; margin-top: 2rem;">
+                    Te amo hoy más que nunca. ¡Gracias! 💖
+                </p>
+                <img src="B&G.jpg" class="img-love-card" alt="Tu y yo">
+                <div class="text-center mt-4">
+                    <button class="btn-custom" onclick="showInvitation()">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <script>
-        showCard = () => {
-            $('#sectionInvitation').fadeOut(0);
-            $('#sectionLoveCard').delay(200).fadeIn(3000);
-        }
+        // Referencias a elementos
+        const introScreen = document.getElementById('introScreen');
+        const playButton = document.getElementById('playButton');
+        const music = document.getElementById('music');
+        const mainContainer = document.getElementById('mainContainer');
+        const invitationSection = document.getElementById('invitationSection');
+        const loveSection = document.getElementById('loveSection');
 
-        showSectionInvitation = () => {
-            $('#sectionLoveCard').fadeOut(0);
-            $('#sectionInvitation').delay(200).fadeIn(3000);
-        }
-
-        document.getElementById('playAudio').addEventListener('click', function () {
-            const audio = document.getElementById('music');
-            audio.play().then(() => {
-                console.log('Audio reproduciéndose');
-                $(this).addClass('d-none');
-                $('#contentInvitation').delay(200).fadeIn(6000);
-            }).catch(error => {
-                console.error('Error al reproducir el audio:', error);
-                $(this).fadeOut();
-                $('#contentInvitation').delay(200).fadeIn(4000);
+        // Reproducir música y mostrar contenido
+        playButton.addEventListener('click', function () {
+            music.play().catch(error => {
+                console.log('Error al reproducir audio:', error);
             });
+
+            introScreen.classList.add('hidden');
+            setTimeout(() => {
+                mainContainer.classList.add('visible');
+            }, 500);
         });
 
+        // Funciones para cambiar entre secciones
+        function showLoveCard() {
+            invitationSection.style.opacity = '0';
+            setTimeout(() => {
+                invitationSection.classList.add('hidden');
+                loveSection.classList.remove('hidden');
+                setTimeout(() => {
+                    loveSection.style.opacity = '1';
+                }, 50);
+            }, 500);
+        }
+
+        function showInvitation() {
+            loveSection.style.opacity = '0';
+            setTimeout(() => {
+                loveSection.classList.add('hidden');
+                invitationSection.classList.remove('hidden');
+                setTimeout(() => {
+                    invitationSection.style.opacity = '1';
+                }, 50);
+            }, 500);
+        }
+
+        // Contador regresivo
         function updateCountdown() {
-            const targetDate = new Date('2025-02-15T16:00:00'); // 15 de febrero de 2025 a las 4:00 PM
+            const targetDate = new Date('2026-02-15T16:00:00');
             const now = new Date();
             const difference = targetDate - now;
 
@@ -587,16 +1153,77 @@
                 document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
                 document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                 document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-            }
-            else {
-                document.getElementById('countdown').innerHTML = '<div class="countdown-item"><div class="countdown-number">¡Es hoy!</div></div>';
+            } else {
+                document.getElementById('countdown').innerHTML = '<div class="countdown-item"><div class="countdown-number" style="font-size: 3rem;">¡Es hoy!</div></div>';
             }
         }
 
-        // Actualizar el contador cada segundo
+        // Actualizar contador cada segundo
         setInterval(updateCountdown, 1000);
-        // Actualizar inmediatamente al cargar la página
         updateCountdown();
+
+        // Slideshow automático
+        const slides = document.querySelectorAll('.slideshow-image');
+        const indicatorsContainer = document.getElementById('indicators');
+        const currentImageSpan = document.getElementById('currentImage');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 segundos por imagen
+
+        // Crear indicadores
+        slides.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicatorsContainer.appendChild(indicator);
+        });
+
+        const indicators = document.querySelectorAll('.indicator');
+
+        function goToSlide(n) {
+            // Remover clases activas
+            slides[currentSlide].classList.remove('active');
+            slides[currentSlide].classList.add('previous');
+            indicators[currentSlide].classList.remove('active');
+
+            // Actualizar índice
+            currentSlide = n;
+
+            // Activar nueva slide
+            slides[currentSlide].classList.remove('previous');
+            slides[currentSlide].classList.add('active');
+            indicators[currentSlide].classList.add('active');
+
+            // Actualizar contador
+            currentImageSpan.textContent = currentSlide + 1;
+
+            // Limpiar clase previous después de la transición
+            setTimeout(() => {
+                slides.forEach((slide, index) => {
+                    if (index !== currentSlide) {
+                        slide.classList.remove('previous');
+                    }
+                });
+            }, 2000);
+        }
+
+        function nextSlide() {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        }
+
+        // Auto avanzar
+        let slideshowTimer = setInterval(nextSlide, slideInterval);
+
+        // Pausar en hover (opcional)
+        const slideshowContainer = document.getElementById('slideshowContainer');
+        slideshowContainer.addEventListener('mouseenter', () => {
+            clearInterval(slideshowTimer);
+        });
+
+        slideshowContainer.addEventListener('mouseleave', () => {
+            slideshowTimer = setInterval(nextSlide, slideInterval);
+        });
     </script>
 </body>
 
